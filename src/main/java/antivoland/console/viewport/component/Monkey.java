@@ -6,7 +6,7 @@ import antivoland.console.viewport.Ticker;
 
 import java.util.List;
 
-public class Player extends Component {
+public class Monkey extends Component {
 
     static final Frames FRAMES = new Frames(List.of(
             new Frame("🙉", 100),

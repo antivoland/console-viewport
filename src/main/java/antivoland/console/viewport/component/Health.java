@@ -21,26 +21,14 @@ public class Health extends Pane {
 
     private static int SLOTS = 10;
 
-    public Health() {
-        for (int i = 0; i < 3; ++i) {
+    public synchronized void set(final int current, final int max) {
+        children.clear();
+        final var l = Math.round((float) SLOTS * current / max);
+        for (int i = 0; i < l; ++i) {
             add(fullSlot());
         }
-        add(changingSlot());
-        for (int i = 0; i < 6; ++i) {
+        for (int i = l; i < SLOTS; ++i) {
             add(emptySlot());
         }
-//        for (int i = 0; i < SLOTS; ++i) {
-//            add(emptySlot());
-//        }
     }
-
-//    public synchronized void set(final int value, final int maxValue) {
-//        var l = value / maxValue * SLOTS;
-//        for (int i = 0; i <= l; ++i) {
-//            children.add()
-//            add(emptySlot());
-//        }
-//
-//
-//    }
 }

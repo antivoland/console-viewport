@@ -22,7 +22,7 @@ public class Timer extends Component {
     public String data(final Ticker.Event event) {
         var dt = event.currentTimestamp - createdTimestamp;
         var minutes = dt / 1000 / 60;
-        var seconds = dt / 1000;
+        var seconds = dt / 1000 - minutes * 60;
         return format("%02d%s%02d", minutes, FRAMES.data(event), seconds);
     }
 }

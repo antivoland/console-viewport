@@ -1,7 +1,7 @@
 package antivoland.console.viewport;
 
 import antivoland.console.viewport.component.Health;
-import antivoland.console.viewport.component.Player;
+import antivoland.console.viewport.component.Monkey;
 import antivoland.console.viewport.component.Timer;
 
 import static antivoland.console.viewport.ConsoleViewport.DEFAULT_SIZE;
@@ -13,7 +13,7 @@ public class ConsoleViewportTest {
         var viewport = new ConsoleViewport(System.out);
 
         viewport.add(new Timer());
-        viewport.add(new Player());
+        viewport.add(new Monkey());
         viewport.add(new Health());
 
 //        var x = 0;
