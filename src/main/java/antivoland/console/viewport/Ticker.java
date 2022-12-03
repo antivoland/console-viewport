@@ -20,7 +20,7 @@ class Ticker {
         }
     }
 
-    private static final int DEFAULT_TICK_INTERVAL_MILLIS = 50;
+    private static final int DEFAULT_TICK_INTERVAL_MILLIS = 10;
 
     private final AtomicLong previousTimestamp = new AtomicLong();
     private final Consumer<Event> tickHandler;
