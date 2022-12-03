@@ -43,7 +43,6 @@ class Frames {
             final var frame = frames.get(i);
             dti += frame.durationMillis;
         } while (dti <= dt && ++i < frames.size());
-//        System.out.printf("dt: %s, frame=%s%n", dt, i);
         return frames.get(i).data;
     }
 }

@@ -8,8 +8,8 @@ public class ConsoleViewportTest {
     public static void main(String[] args) throws Exception {
         var viewport = new ConsoleViewport(System.out);
 
-        var player = new Component.Player();
-        viewport.add(player);
+        viewport.add(new Component.Timer());
+        viewport.add(new Component.Player());
 
 //        var x = 0;
 //        viewport.message("Starting...");
