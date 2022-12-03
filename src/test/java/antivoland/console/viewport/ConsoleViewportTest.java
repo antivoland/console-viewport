@@ -1,5 +1,6 @@
 package antivoland.console.viewport;
 
+import antivoland.console.viewport.component.Health;
 import antivoland.console.viewport.component.Player;
 import antivoland.console.viewport.component.Timer;
 
@@ -13,6 +14,7 @@ public class ConsoleViewportTest {
 
         viewport.add(new Timer());
         viewport.add(new Player());
+        viewport.add(new Health());
 
 //        var x = 0;
 //        viewport.message("Starting...");
