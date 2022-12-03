@@ -1,5 +1,8 @@
-package antivoland.console.viewport;
+package antivoland.console.viewport.view.component;
 
+import antivoland.console.viewport.Frame;
+import antivoland.console.viewport.Frames;
+import antivoland.console.viewport.Ticker;
 import antivoland.console.viewport.view.component.Component;
 
 import java.util.Arrays;

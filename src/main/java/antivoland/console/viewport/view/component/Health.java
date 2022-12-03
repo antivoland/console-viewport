@@ -1,6 +1,5 @@
 package antivoland.console.viewport.view.component;
 
-import antivoland.console.viewport.Animation;
 import antivoland.console.viewport.Frame;
 
 public class Health extends Pane {

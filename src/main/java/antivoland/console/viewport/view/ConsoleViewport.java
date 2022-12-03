@@ -1,11 +1,12 @@
-package antivoland.console.viewport;
+package antivoland.console.viewport.view;
 
+import antivoland.console.viewport.Ticker;
 import antivoland.console.viewport.view.component.Component;
 import antivoland.console.viewport.view.component.Pane;
 
 import java.io.PrintStream;
 
-class ConsoleViewport {
+public class ConsoleViewport {
     final static int DEFAULT_SIZE = 80;
 
     private final PrintStream stream;
@@ -17,22 +18,22 @@ class ConsoleViewport {
         this(System.out, DEFAULT_SIZE);
     }
 
-    ConsoleViewport(final PrintStream stream) {
+    public ConsoleViewport(final PrintStream stream) {
         this(stream, DEFAULT_SIZE);
     }
 
-    ConsoleViewport(PrintStream stream, int size) {
+    public ConsoleViewport(PrintStream stream, int size) {
         this.stream = stream;
         this.size = size;
 
         new Ticker(event -> draw(root.data(event)));
     }
 
-    void add(final Component component) {
+    public void add(final Component component) {
         root.add(component);
     }
 
-    synchronized void draw(final String data) {
+    public synchronized void draw(final String data) {
         if (data.equals(this.data)) {
             return;
         }
@@ -42,14 +43,14 @@ class ConsoleViewport {
         stream.print(data);
     }
 
-    void clear() {
+    public void clear() {
         stream.print('\r');
         for (int i = 0; i < size; ++i) {
             stream.print(' ');
         }
     }
 
-    void message(final String message) {
+    public void message(final String message) {
         stream.print(message);
     }
 }

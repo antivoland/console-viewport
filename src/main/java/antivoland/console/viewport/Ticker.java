@@ -25,12 +25,12 @@ public class Ticker {
     private final AtomicLong previousTimestamp = new AtomicLong();
     private final Consumer<Event> tickHandler;
 
-    Ticker(final Consumer<Event> tickHandler) {
+    public Ticker(final Consumer<Event> tickHandler) {
         this(tickHandler, DEFAULT_TICK_INTERVAL_MILLIS);
     }
 
     @SuppressWarnings("BusyWait")
-    Ticker(final Consumer<Event> tickHandler, final int tickIntervalMillis) {
+    public Ticker(final Consumer<Event> tickHandler, final int tickIntervalMillis) {
         this.tickHandler = tickHandler;
 
         new Thread(() -> { // todo: pause ticker

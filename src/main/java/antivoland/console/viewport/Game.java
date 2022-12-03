@@ -1,5 +1,6 @@
 package antivoland.console.viewport;
 
+import antivoland.console.viewport.view.ConsoleViewport;
 import antivoland.console.viewport.view.component.Health;
 import antivoland.console.viewport.view.component.Monkey;
 import antivoland.console.viewport.view.component.Timer;

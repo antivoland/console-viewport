@@ -1,20 +1,15 @@
 package antivoland.console.viewport;
 
-import antivoland.console.viewport.view.component.Health;
-import antivoland.console.viewport.view.component.Monkey;
-import antivoland.console.viewport.view.component.Timer;
-
-import static antivoland.console.viewport.ConsoleViewport.DEFAULT_SIZE;
 
 public class ConsoleViewportTest {
     private static char EMPTY = ' ';
 
     public static void main(String[] args) throws Exception {
-        var viewport = new ConsoleViewport(System.out);
-
-        viewport.add(new Timer());
-        viewport.add(new Monkey());
-        viewport.add(new Health());
+//        var viewport = new ConsoleViewport(System.out);
+//
+//        viewport.add(new Timer());
+//        viewport.add(new Monkey());
+//        viewport.add(new Health());
 
 //        var x = 0;
 //        viewport.message("Starting...");
@@ -24,13 +19,6 @@ public class ConsoleViewportTest {
 //            sleep(100);
 //        }
 //        System.in.read();
-    }
-
-    private static char[] draw(final char token, final int x) {
-
-        final char[] tokens = layer(DEFAULT_SIZE);
-        tokens[x] = '@';
-        return tokens;
     }
 
     private static char[] layer(final int size) {
