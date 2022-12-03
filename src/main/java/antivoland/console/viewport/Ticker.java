@@ -1,6 +1,9 @@
 package antivoland.console.viewport;
 
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Consumer;
 
 public class Ticker {
@@ -20,10 +23,12 @@ public class Ticker {
         }
     }
 
-    private static final int DEFAULT_TICK_INTERVAL_MILLIS = 10;
+    private static final int DEFAULT_TICK_INTERVAL_MILLIS = 50;
 
     private final AtomicLong previousTimestamp = new AtomicLong();
     private final Consumer<Event> tickHandler;
+    private final Lock lock = new ReentrantLock();
+    private final Condition paused = lock.newCondition();
 
     public Ticker(final Consumer<Event> tickHandler) {
         this(tickHandler, DEFAULT_TICK_INTERVAL_MILLIS);
@@ -45,13 +50,13 @@ public class Ticker {
         }).start();
     }
 
-    void tick() {
+    private void tick() {
         final long currentTimestamp = System.currentTimeMillis();
         final var event = new Event(currentTimestamp, previousTimestamp.getAndSet(currentTimestamp));
         tickHandler.accept(event);
     }
 
-    int fps() {
+    public int fps() {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 }

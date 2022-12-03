@@ -1,6 +1,7 @@
 package antivoland.console.viewport;
 
 import antivoland.console.viewport.view.ConsoleViewport;
+import antivoland.console.viewport.view.component.Fps;
 import antivoland.console.viewport.view.component.Health;
 import antivoland.console.viewport.view.component.Monkey;
 import antivoland.console.viewport.view.component.Timer;
@@ -24,6 +25,7 @@ public class Game {
         var viewport = new ConsoleViewport(System.out);
 
         viewport.add(new Timer());
+        viewport.add(new Fps());
         viewport.add(game.healthView);
         viewport.add(game.playerView);
     }
