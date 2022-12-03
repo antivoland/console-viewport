@@ -1,6 +1,7 @@
 package antivoland.console.viewport;
 
 import antivoland.console.viewport.component.Component;
+import antivoland.console.viewport.component.Pane;
 
 import java.io.PrintStream;
 
@@ -9,7 +10,7 @@ class ConsoleViewport {
 
     private final PrintStream stream;
     private final int size;
-    private final Component.Pane root = new Component.Pane();
+    private final Pane root = new Pane();
     private volatile String data;
 
     ConsoleViewport() {

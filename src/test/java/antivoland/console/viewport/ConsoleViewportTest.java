@@ -1,6 +1,7 @@
 package antivoland.console.viewport;
 
-import antivoland.console.viewport.component.Component;
+import antivoland.console.viewport.component.Player;
+import antivoland.console.viewport.component.Timer;
 
 import static antivoland.console.viewport.ConsoleViewport.DEFAULT_SIZE;
 
@@ -10,8 +11,8 @@ public class ConsoleViewportTest {
     public static void main(String[] args) throws Exception {
         var viewport = new ConsoleViewport(System.out);
 
-        viewport.add(new Component.Timer());
-        viewport.add(new Component.Player());
+        viewport.add(new Timer());
+        viewport.add(new Player());
 
 //        var x = 0;
 //        viewport.message("Starting...");
