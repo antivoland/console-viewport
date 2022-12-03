@@ -3,11 +3,11 @@ package antivoland.console.viewport;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Consumer;
 
-class Ticker {
+public class Ticker {
 
-    static class Event {
-        final long previousTimestamp;
-        final long currentTimestamp;
+    public static class Event {
+        public final long previousTimestamp;
+        public final long currentTimestamp;
 
         private Event(long previousTimestamp, long currentTimestamp) {
             this.previousTimestamp = previousTimestamp;

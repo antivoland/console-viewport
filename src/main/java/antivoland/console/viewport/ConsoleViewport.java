@@ -1,5 +1,7 @@
 package antivoland.console.viewport;
 
+import antivoland.console.viewport.component.Component;
+
 import java.io.PrintStream;
 
 class ConsoleViewport {

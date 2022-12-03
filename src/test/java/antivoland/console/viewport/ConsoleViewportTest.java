@@ -1,5 +1,7 @@
 package antivoland.console.viewport;
 
+import antivoland.console.viewport.component.Component;
+
 import static antivoland.console.viewport.ConsoleViewport.DEFAULT_SIZE;
 
 public class ConsoleViewportTest {

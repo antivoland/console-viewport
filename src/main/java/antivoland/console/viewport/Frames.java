@@ -4,11 +4,11 @@ import java.util.List;
 
 import static java.lang.Math.max;
 
-class Frames {
+public class Frames {
     final List<Frame> frames;
     final long createdTimestamp = System.currentTimeMillis();
 
-    Frames(final List<Frame> frames) {
+    public Frames(final List<Frame> frames) {
         this.frames = frames;
     }
 
@@ -28,7 +28,7 @@ class Frames {
         return size;
     }
 
-    String data(final Ticker.Event event) {
+    public String data(final Ticker.Event event) {
         if (frames.isEmpty()) {
             return "";
         }
