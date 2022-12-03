@@ -1,16 +1,37 @@
 package antivoland.console.viewport;
 
+import static antivoland.console.viewport.ConsoleViewport.DEFAULT_SIZE;
 import static java.lang.Thread.sleep;
 
 public class ConsoleViewportTest {
+    private static char EMPTY = ' ';
+
     public static void main(String[] args) throws Exception {
-        final var player = "😃";
+        final var token = "😃";
         final var viewport = new ConsoleViewport(System.out);
 
-        System.out.println("Starting...");
-        for (int i = 0; i < 10; ++i) {
-            viewport.draw(player + i);
+        var x = 0;
+//        viewport.message("Starting...");
+//        for (int i = 0; i < 100; ++i) {
+            x += 1;
+//            viewport.draw(new char[]{'@', Character.forDigit(i, 10)});
             sleep(100);
+//        }
+        System.in.read();
+    }
+
+    private static char[] draw(final char token, final int x) {
+
+        final char[] tokens = layer(DEFAULT_SIZE);
+        tokens[x] = '@';
+        return tokens;
+    }
+
+    private static char[] layer(final int size) {
+        final char[] tokens = new char[size];
+        for (int i = 0; i < size; ++i) {
+            tokens[i] = EMPTY;
         }
+        return tokens;
     }
 }

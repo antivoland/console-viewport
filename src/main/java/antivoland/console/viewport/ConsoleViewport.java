@@ -3,14 +3,44 @@ package antivoland.console.viewport;
 import java.io.PrintStream;
 
 class ConsoleViewport {
-    private final PrintStream stream;
+    final static int DEFAULT_SIZE = 80;
 
-    ConsoleViewport(final PrintStream stream) {
-        this.stream = stream;
+    private final PrintStream stream;
+    private final int size;
+
+    ConsoleViewport() {
+        this(System.out, DEFAULT_SIZE);
     }
 
-    void draw(final String token) {
+    ConsoleViewport(final PrintStream stream) {
+        this(stream, DEFAULT_SIZE);
+    }
+
+    ConsoleViewport(PrintStream stream, int size) {
+        this.stream = stream;
+        this.size = size;
+
+        new Ticker(this::handleTickerEvent, 100);
+    }
+
+    private void handleTickerEvent(final Ticker.Event event) {
+        draw("Tick event: " + event.toString());
+    }
+
+    void draw(final String line) {
+        clear();
         stream.print('\r');
-        stream.print(token);
+        stream.print(line);
+    }
+
+    void clear() {
+        stream.print('\r');
+        for (int i = 0; i < size; ++i) {
+            stream.print(' ');
+        }
+    }
+
+    void message(final String message) {
+        stream.print(message);
     }
 }
