@@ -1,4 +1,4 @@
-package antivoland.console.viewport.component;
+package antivoland.console.viewport.view.component;
 
 import antivoland.console.viewport.Animation;
 import antivoland.console.viewport.Frame;

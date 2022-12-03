@@ -1,8 +1,8 @@
 package antivoland.console.viewport;
 
-import antivoland.console.viewport.component.Health;
-import antivoland.console.viewport.component.Monkey;
-import antivoland.console.viewport.component.Timer;
+import antivoland.console.viewport.view.component.Health;
+import antivoland.console.viewport.view.component.Monkey;
+import antivoland.console.viewport.view.component.Timer;
 
 import static antivoland.console.viewport.ConsoleViewport.DEFAULT_SIZE;
 

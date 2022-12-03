@@ -1,6 +1,6 @@
 package antivoland.console.viewport;
 
-import antivoland.console.viewport.component.Component;
+import antivoland.console.viewport.view.component.Component;
 
 import java.util.Arrays;
 import java.util.List;

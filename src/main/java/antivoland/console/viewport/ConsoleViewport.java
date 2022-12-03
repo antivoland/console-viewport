@@ -1,7 +1,7 @@
 package antivoland.console.viewport;
 
-import antivoland.console.viewport.component.Component;
-import antivoland.console.viewport.component.Pane;
+import antivoland.console.viewport.view.component.Component;
+import antivoland.console.viewport.view.component.Pane;
 
 import java.io.PrintStream;
 
