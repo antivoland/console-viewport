@@ -22,7 +22,7 @@ public class Pane extends Component {
     }
 
     @Override
-    public synchronized String data(Ticker.Event event) {
+    public synchronized String data(final Ticker.Event event) {
         final var builder = new StringBuilder();
         for (final var child : children) {
             builder.append(child.data(event));
