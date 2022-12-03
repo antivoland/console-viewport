@@ -7,6 +7,7 @@ class ConsoleViewport {
 
     private final PrintStream stream;
     private final int size;
+    private final Component.Pane root = new Component.Pane();
 
     ConsoleViewport() {
         this(System.out, DEFAULT_SIZE);
@@ -20,17 +21,21 @@ class ConsoleViewport {
         this.stream = stream;
         this.size = size;
 
-        new Ticker(this::handleTickerEvent, 100);
+        new Ticker(this::handleTickerEvent);
     }
 
     private void handleTickerEvent(final Ticker.Event event) {
-        draw("Tick event: " + event.toString());
+        draw(root.data());
     }
 
-    void draw(final String line) {
+    void add(final Component component) {
+        root.add(component);
+    }
+
+    void draw(final String data) {
         clear();
         stream.print('\r');
-        stream.print(line);
+        stream.print(data);
     }
 
     void clear() {

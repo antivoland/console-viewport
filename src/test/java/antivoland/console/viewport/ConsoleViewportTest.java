@@ -1,23 +1,24 @@
 package antivoland.console.viewport;
 
 import static antivoland.console.viewport.ConsoleViewport.DEFAULT_SIZE;
-import static java.lang.Thread.sleep;
 
 public class ConsoleViewportTest {
     private static char EMPTY = ' ';
 
     public static void main(String[] args) throws Exception {
-        final var token = "😃";
-        final var viewport = new ConsoleViewport(System.out);
+        var viewport = new ConsoleViewport(System.out);
 
-        var x = 0;
+        var player = new Component.Player();
+        viewport.add(player);
+
+//        var x = 0;
 //        viewport.message("Starting...");
 //        for (int i = 0; i < 100; ++i) {
-            x += 1;
+//        x += 1;
 //            viewport.draw(new char[]{'@', Character.forDigit(i, 10)});
-            sleep(100);
+//            sleep(100);
 //        }
-        System.in.read();
+//        System.in.read();
     }
 
     private static char[] draw(final char token, final int x) {
