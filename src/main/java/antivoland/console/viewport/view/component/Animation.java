@@ -9,11 +9,15 @@ import java.util.Arrays;
 import static java.util.stream.Collectors.toList;
 
 public class Animation extends Component {
-    private static final int DEFAULT_FRAME_DURATION_MILLIS = 500;
+    private static final int DEFAULT_FRAME_DURATION_MILLIS = 300;
     private final Frames frames;
 
     public Animation(String... frames) {
-        this(new Frames(Arrays.stream(frames).map(frame -> new Frame(frame, DEFAULT_FRAME_DURATION_MILLIS)).collect(toList())));
+        this(DEFAULT_FRAME_DURATION_MILLIS, frames);
+    }
+
+    public Animation(int frameDurationMillis, String... frames) {
+        this(new Frames(Arrays.stream(frames).map(frame -> new Frame(frame, frameDurationMillis)).collect(toList())));
     }
 
     public Animation(Frame... frames) {

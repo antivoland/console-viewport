@@ -13,8 +13,12 @@ public class Camera {
     }
 
     public Snapshot snapshot(Tick tick, int size) {
-        var x = stage.player.view.x;
-        var value = stage.player.view.value(tick);
-        return new Snapshot(size).append(x - this.x, value);
+        var snapshot = new Snapshot(size);
+
+        for (var animation : stage.animations) {
+            snapshot = snapshot.append(animation.x - x, animation.value(tick));
+        }
+
+        return snapshot.append(stage.player.view.x - x, stage.player.view.value(tick));
     }
 }
