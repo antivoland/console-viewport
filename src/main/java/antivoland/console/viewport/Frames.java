@@ -1,12 +1,14 @@
 package antivoland.console.viewport;
 
+import antivoland.console.viewport.tick.Tick;
+
 import java.util.List;
 
 import static java.lang.Math.max;
 
 public class Frames {
     final List<Frame> frames;
-    final long createdTimestamp = System.currentTimeMillis();
+    final long createdTimeMillis = System.currentTimeMillis();
 
     public Frames(final List<Frame> frames) {
         this.frames = frames;
@@ -20,7 +22,7 @@ public class Frames {
         return totalDurationMillis;
     }
 
-    public int size() {
+    public int maxSize() {
         var size = 0;
         for (final var frame : frames) {
             size = max(size, frame.data.length());
@@ -28,13 +30,13 @@ public class Frames {
         return size;
     }
 
-    public String data(final Ticker.Event event) {
+    public String data(final Tick tick) {
         if (frames.isEmpty()) {
             return "";
         }
         final var totalDurationMillis = totalDurationMillis();
 
-        var dt = event.currentTimestamp - createdTimestamp;
+        var dt = tick.currentTimeMillis - createdTimeMillis;
         dt = dt % totalDurationMillis;
 
         var i = 0;
