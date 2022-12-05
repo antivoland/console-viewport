@@ -13,7 +13,7 @@ public class Actor {
 
     // todo: inventory
 
-    public final Monkey view = new Monkey(null);
+    public final Monkey view = new Monkey();
 
     public volatile Task task;
 

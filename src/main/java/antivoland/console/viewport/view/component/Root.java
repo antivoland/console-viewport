@@ -4,6 +4,6 @@ import antivoland.console.viewport.view.Viewport;
 
 public class Root extends Panel {
     public Root(Viewport viewport) {
-        super(viewport.size, viewport ,Align.LEFT);
+        super(viewport.size ,Align.LEFT);
     }
 }

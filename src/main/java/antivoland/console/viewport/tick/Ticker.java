@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 
 public class Ticker implements Closeable {
 
-    private static final int DEFAULT_TICK_INTERVAL_MILLIS = 50;
+    private static final int DEFAULT_TICK_INTERVAL_MILLIS = 10;
 
     private final Consumer<Tick> tickHandler;
     private volatile long previousTimestamp;

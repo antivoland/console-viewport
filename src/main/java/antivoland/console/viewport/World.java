@@ -35,8 +35,15 @@ public class World {
 
     public void run() {
         try (var stage = new Stage(this)) {
-            stage.player.view.x = 10;
-            stage.player.move(60);
+            stage.player.view.x = 0;
+            stage.player.velocity = 2.0;
+
+            // attack
+//            stage.player.move(20);
+
+            // move
+            stage.player.move(20);
+
             // do nothing
         }
     }

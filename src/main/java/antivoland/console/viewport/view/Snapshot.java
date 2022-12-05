@@ -22,6 +22,7 @@ public class Snapshot {
         if (i + value.length() <= 0 || i > this.value.length()) {
             return this;
         }
+
         var sb = new StringBuilder(this.value);
         for (int j = 0; j < min(value.length(), this.value.length() - i); ++j) {
             var c = value.charAt(j);

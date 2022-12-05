@@ -13,9 +13,9 @@ public class Game {
     public final Monkey playerView;
     public final Health healthView;
 
-    public Game(Viewport viewport) {
-        playerView = new Monkey(viewport);
-        healthView = new Health(viewport);
+    public Game() {
+        playerView = new Monkey();
+        healthView = new Health();
         healthView.set(player.health, player.maxHealth);
     }
 
