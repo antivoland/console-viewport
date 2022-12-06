@@ -32,6 +32,8 @@ public class Game {
             stage.views.add(door.view);
             door.view.x = actorX + 4;
 
+            // todo: open the door and reveal the next room
+
             stage.play();
 
             stage.player.view.x = 0;
