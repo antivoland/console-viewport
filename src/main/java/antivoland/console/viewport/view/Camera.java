@@ -15,7 +15,7 @@ public class Camera {
     public Snapshot snapshot(Tick tick, int size) {
         var snapshot = new Snapshot(size);
 
-        for (var animation : stage.animations) {
+        for (var animation : stage.views) {
             snapshot = snapshot.append(animation.x - x, animation.value(tick));
         }
 

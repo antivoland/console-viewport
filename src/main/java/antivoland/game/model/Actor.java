@@ -1,9 +1,9 @@
 package antivoland.game.model;
 
 
+import antivoland.console.viewport.view.component.Component;
 import antivoland.game.model.task.MoveTask;
 import antivoland.game.model.task.Task;
-import antivoland.console.viewport.view.component.Monkey;
 
 public class Actor {
 
@@ -13,9 +13,13 @@ public class Actor {
 
     // todo: inventory
 
-    public final Monkey view = new Monkey();
+    public final Component view;
 
     public volatile Task task;
+
+    public Actor(Component view) {
+        this.view = view;
+    }
 
     public void move(int x) {
         task = new MoveTask(this, x);

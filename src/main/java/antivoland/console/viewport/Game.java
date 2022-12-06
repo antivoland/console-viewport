@@ -2,13 +2,14 @@ package antivoland.console.viewport;
 
 import antivoland.console.viewport.view.component.Health;
 import antivoland.console.viewport.view.component.Monkey;
+import antivoland.console.viewport.view.component.Token;
 import antivoland.game.model.Player;
 import antivoland.console.viewport.story.Story;
 
 public class Game {
 
     public final Story story = new Story();
-    public final Player player = new Player();
+    public final Player player = new Player(new Token("X_x"));
     public final Monkey playerView;
     public final Health healthView;
 

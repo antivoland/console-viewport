@@ -1,5 +1,7 @@
 package antivoland.console.viewport.stage;
 
+import antivoland.console.viewport.view.component.Component;
+import antivoland.console.viewport.view.component.Token;
 import antivoland.game.model.Player;
 import antivoland.console.viewport.tick.Tick;
 import antivoland.console.viewport.tick.Ticker;
@@ -8,13 +10,15 @@ import antivoland.console.viewport.view.Viewport;
 import antivoland.console.viewport.view.component.Animation;
 
 import java.io.Closeable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static antivoland.console.viewport.asset.Emoji.AnimalsAndNature.*;
 
 public class Stage implements Closeable {
     private final Ticker ticker = new Ticker(this::handleTick);
-    public final Player player = new Player();
+    public final Player player = new Player(new Token(";)"));
     public final Camera camera = new Camera(this);
     public final Viewport viewport = new Viewport();
     public final List<Animation> animations = List.of(
@@ -105,7 +109,8 @@ public class Stage implements Closeable {
                     "↙")
             //https://www.williamrobertson.net/documents/ascii.shtml
     );
-    private volatile boolean paused = false;
+    private volatile boolean paused = true;
+    public final Collection<Component> views = new ArrayList<>();
 
     public Stage() {
         int x0 = 20;
@@ -116,12 +121,12 @@ public class Stage implements Closeable {
         ticker.run();
     }
 
-    public void pause() {
-        paused = true;
+    public void play() {
+        paused = false;
     }
 
-    public void resume() {
-        paused = false;
+    public void pause() {
+        paused = true;
     }
 
     private void handleTick(Tick tick) {

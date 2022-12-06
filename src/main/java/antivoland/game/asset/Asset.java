@@ -3,9 +3,10 @@ package antivoland.game.asset;
 // https://www.williamrobertson.net/documents/ascii.shtml
 //   https://everything2.com/title/HTML%2520symbol%2520reference
 public interface Asset {
-    char AVATAR_1 = '☹';
-    char AVATAR_2 = '☺';
-    char AVATAR_3 = '☻';
+    char FACE_1_SAD = '☹';
+    char FACE_1_HAPPY = '☺';
+    char FACE_1_HAPPY_INVERTED = '☻';
+    char FACE_2 = '㋡';
 
     char HEART_1_FULL = '♥';
     char HEART_1_EMPTY = '♡';
@@ -58,7 +59,6 @@ public interface Asset {
     String LINE_BRACK = "●▬▬▬▬๑۩۩๑▬▬▬▬▬●";
     String MED = "ب_ب";
     String BULLSHIT = "|3ᵕᶦᶦᶳᶣᶨᶵ"; // thoughts
-    char FACE_HAPPY = '㋡';
     String GUN = "︻╦╤──────"; // laser
     String ROCKET = "∙∙∙∙∙·▫▫ᵒᴼᵒ▫ₒₒ▫ᵒᴼᵒ▫ₒₒ▫ᵒᴼᵒ☼)===>";
     String CIGARETTE = "(____((____________()~~~"; // tunnels
