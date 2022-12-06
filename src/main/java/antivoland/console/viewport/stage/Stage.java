@@ -14,7 +14,6 @@ import java.util.List;
 import static antivoland.console.viewport.asset.Emoji.AnimalsAndNature.*;
 
 public class Stage implements Closeable {
-    private final World world;
     private final Ticker ticker = new Ticker(this::handleTick);
     public final Player player = new Player();
     public final Camera camera = new Camera(this);
@@ -108,9 +107,7 @@ public class Stage implements Closeable {
             //https://www.williamrobertson.net/documents/ascii.shtml
     );
 
-    public Stage(World world) {
-        this.world = world;
-
+    public Stage() {
         int x0 = 20;
         for (int i = 0; i < animations.size(); ++i) {
             animations.get(i).x = x0 + i * 3;
