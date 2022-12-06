@@ -5,6 +5,7 @@ import antivoland.console.viewport.story.Story;
 import antivoland.console.viewport.view.component.Token;
 import antivoland.game.asset.Asset;
 import antivoland.game.model.Actor;
+import antivoland.game.model.Door;
 import antivoland.game.model.Player;
 
 import java.util.List;
@@ -15,16 +16,21 @@ public class Game {
 
 //        System.in.read();
         try (var stage = new Stage()) {
-            var player = new Player(new Token(Asset.FACE_2));
+            var captain = new Player(new Token(Asset.FACE_2));
             var medic = new Actor(new Token(Asset.FACE_1_HAPPY));
-            var soldier = new Actor(new Token(Asset.FACE_1_SAD));
+            var scientist = new Actor(new Token(Asset.FACE_1_SAD));
             var engineer = new Actor(new Token(Asset.FACE_1_HAPPY_INVERTED));
-            var actors = List.of(player, medic, soldier, engineer);
-            var i = 0;
+            var actors = List.of(captain, medic, scientist, engineer);
+            var actorX = 0;
             for (Actor actor : actors) {
                 stage.views.add(actor.view);
-                actor.view.x = ++i;
+                actor.view.x = actorX;
+                actorX += 2;
             }
+
+            var door = new Door();
+            stage.views.add(door.view);
+            door.view.x = actorX + 4;
 
             stage.play();
 
