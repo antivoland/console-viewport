@@ -45,9 +45,9 @@ public class Game {
             // move
             stage.player.move(20);
 
-            Thread.sleep(30000);
+//            Thread.sleep(30000);
 
-            stage.pause();
+//            stage.pause();
 
             // do nothing
         }
