@@ -1,4 +1,4 @@
-package antivoland.console.viewport.model;
+package antivoland.game.model;
 
 public class Location {
     final int x;

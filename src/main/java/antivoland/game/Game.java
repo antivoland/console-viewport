@@ -1,10 +1,11 @@
 package antivoland.game;
 
 import antivoland.console.viewport.stage.Stage;
+import antivoland.console.viewport.story.Story;
 
 public class Game {
     public static void main(String[] args) throws Exception {
-//        var story = new Story();
+        var story = new Story();
 
 //        System.in.read();
         try (var stage = new Stage()) {

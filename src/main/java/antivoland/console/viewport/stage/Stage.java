@@ -1,6 +1,6 @@
 package antivoland.console.viewport.stage;
 
-import antivoland.console.viewport.model.Player;
+import antivoland.game.model.Player;
 import antivoland.console.viewport.tick.Tick;
 import antivoland.console.viewport.tick.Ticker;
 import antivoland.console.viewport.view.Camera;

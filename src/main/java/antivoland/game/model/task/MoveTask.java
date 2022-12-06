@@ -1,6 +1,6 @@
-package antivoland.console.viewport.model.task;
+package antivoland.game.model.task;
 
-import antivoland.console.viewport.model.Actor;
+import antivoland.game.model.Actor;
 import antivoland.console.viewport.tick.Tick;
 
 import static java.lang.Math.min;

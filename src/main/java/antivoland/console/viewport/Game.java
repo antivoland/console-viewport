@@ -1,9 +1,8 @@
 package antivoland.console.viewport;
 
-import antivoland.console.viewport.view.Viewport;
 import antivoland.console.viewport.view.component.Health;
 import antivoland.console.viewport.view.component.Monkey;
-import antivoland.console.viewport.model.Player;
+import antivoland.game.model.Player;
 import antivoland.console.viewport.story.Story;
 
 public class Game {

@@ -1,4 +1,4 @@
-package antivoland.console.viewport.model.task;
+package antivoland.game.model.task;
 
 import antivoland.console.viewport.tick.Tick;
 

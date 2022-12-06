@@ -1,8 +1,8 @@
-package antivoland.console.viewport.model;
+package antivoland.game.model;
 
 
-import antivoland.console.viewport.model.task.MoveTask;
-import antivoland.console.viewport.model.task.Task;
+import antivoland.game.model.task.MoveTask;
+import antivoland.game.model.task.Task;
 import antivoland.console.viewport.view.component.Monkey;
 
 public class Actor {
