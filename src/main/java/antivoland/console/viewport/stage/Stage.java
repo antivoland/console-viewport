@@ -1,6 +1,5 @@
 package antivoland.console.viewport.stage;
 
-import antivoland.console.viewport.World;
 import antivoland.console.viewport.model.Player;
 import antivoland.console.viewport.tick.Tick;
 import antivoland.console.viewport.tick.Ticker;
@@ -44,7 +43,7 @@ public class Stage implements Closeable {
                     "O",
                     "o",
                     "."
-                    ),
+            ),
             new Animation(300,
                     "_",
                     "_",
@@ -54,14 +53,14 @@ public class Stage implements Closeable {
                     "~",
                     "`",
                     "_"
-                    ),
+            ),
             new Animation(250,
                     "░",
                     "▒",
                     "▓",
                     "▒",
                     "░"
-                    ),
+            ),
             new Animation(400,
                     "’", "‛"),
             new Animation(400,
@@ -69,17 +68,17 @@ public class Stage implements Closeable {
             new Animation(400,
                     "∝", "∞"),
             new Animation(400,
-                    "∴","∻", "∵","∻"),
+                    "∴", "∻", "∵", "∻"),
             new Animation(400,
-                    "∼","∽"),
+                    "∼", "∽"),
             new Animation(400,
-                    "⊶","⊷"),
+                    "⊶", "⊷"),
             new Animation(400,
-                    "⊹"," "),
+                    "⊹", " "),
             new Animation(400,
-                    "⋋","⋌"),
+                    "⋋", "⋌"),
             new Animation(400,
-                    "⋮","⋰","⋯","⋱"),
+                    "⋮", "⋰", "⋯", "⋱"),
             new Animation(400,
                     "⎜",
                     "⎡",
@@ -91,9 +90,9 @@ public class Stage implements Closeable {
                     "⎤",
                     "⎜"),
             new Animation(400,
-                    "⎟","⎠","⎟","⎝"),
+                    "⎟", "⎠", "⎟", "⎝"),
             new Animation(400,
-                    "⊏","⊂"),
+                    "⊏", "⊂"),
             new Animation(200,
                     "←",
                     "←",
@@ -106,6 +105,7 @@ public class Stage implements Closeable {
                     "↙")
             //https://www.williamrobertson.net/documents/ascii.shtml
     );
+    private volatile boolean paused = false;
 
     public Stage() {
         int x0 = 20;
@@ -116,7 +116,18 @@ public class Stage implements Closeable {
         ticker.run();
     }
 
+    public void pause() {
+        paused = true;
+    }
+
+    public void resume() {
+        paused = false;
+    }
+
     private void handleTick(Tick tick) {
+        if (paused) {
+            return;
+        }
         if (player.task != null) {
             player.task.tick(tick);
         }
