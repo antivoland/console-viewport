@@ -36,15 +36,82 @@ public class Stage implements Closeable {
             new Animation(500, // camel
                     CAMEL,
                     TWO_HUMP_CAMEL),
-            new Animation(500, // ram
+            new Animation(500, // pig
                     PIG_FACE,
-                    PIG_NOSE)
+                    PIG_NOSE),
+            new Animation(300,
+                    ".",
+                    "o",
+                    "O",
+                    "o",
+                    "."
+                    ),
+            new Animation(300,
+                    "_",
+                    "_",
+                    "_",
+                    "_",
+                    "-",
+                    "~",
+                    "`",
+                    "_"
+                    ),
+            new Animation(250,
+                    "░",
+                    "▒",
+                    "▓",
+                    "▒",
+                    "░"
+                    ),
+            new Animation(400,
+                    "’", "‛"),
+            new Animation(400,
+                    "†", "‡"),
+            new Animation(400,
+                    "∝", "∞"),
+            new Animation(400,
+                    "∴","∻", "∵","∻"),
+            new Animation(400,
+                    "∼","∽"),
+            new Animation(400,
+                    "⊶","⊷"),
+            new Animation(400,
+                    "⊹"," "),
+            new Animation(400,
+                    "⋋","⋌"),
+            new Animation(400,
+                    "⋮","⋰","⋯","⋱"),
+            new Animation(400,
+                    "⎜",
+                    "⎡",
+                    "⎛",
+                    "⎡",
+                    "⎜",
+                    "⎤",
+                    "⎞",
+                    "⎤",
+                    "⎜"),
+            new Animation(400,
+                    "⎟","⎠","⎟","⎝"),
+            new Animation(400,
+                    "⊏","⊂"),
+            new Animation(200,
+                    "←",
+                    "←",
+                    "↖",
+                    "↑",
+                    "↗",
+                    "→",
+                    "↘",
+                    "↓",
+                    "↙")
+            //https://www.williamrobertson.net/documents/ascii.shtml
     );
 
     public Stage(World world) {
         this.world = world;
 
-        int x0 = 30;
+        int x0 = 20;
         for (int i = 0; i < animations.size(); ++i) {
             animations.get(i).x = x0 + i * 3;
         }
