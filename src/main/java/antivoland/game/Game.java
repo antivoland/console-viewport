@@ -1,7 +1,9 @@
 package antivoland.game;
 
+import antivoland.console.viewport.Frame;
 import antivoland.console.viewport.stage.Stage;
 import antivoland.console.viewport.story.Story;
+import antivoland.console.viewport.view.component.Animation;
 import antivoland.console.viewport.view.component.Token;
 import antivoland.game.asset.Asset;
 import antivoland.game.model.Actor;
@@ -16,11 +18,23 @@ public class Game {
 
 //        System.in.read();
         try (var stage = new Stage()) {
-            var captain = new Player(new Token(Asset.FACE_2));
-            var medic = new Actor(new Token(Asset.FACE_1_HAPPY));
-            var scientist = new Actor(new Token(Asset.FACE_1_SAD));
-            var engineer = new Actor(new Token(Asset.FACE_1_HAPPY_INVERTED));
-            var actors = List.of(captain, medic, scientist, engineer);
+            var player = new Player(new Animation(
+                    new Frame(Asset.FACE_1_SAD + "", 2000),
+                    new Frame(Asset.FACE_1_HAPPY + "", 500),
+                    new Frame(Asset.FACE_1_HAPPY_INVERTED + "", 2000),
+                    new Frame(Asset.FACE_1_HAPPY + "", 500)
+            ));
+
+            var actors = List.of(
+                    player,
+                    new Actor(new Token(Asset.FACE_2)),
+                    new Actor(new Animation(
+                            new Frame(Asset.FACE_1_HAPPY + "", 1000),
+                            new Frame(Asset.FACE_1_HAPPY_INVERTED + "", 1000))),
+                    new Actor(new Animation(
+                            new Frame(Asset.FACE_1_HAPPY + "", 1000),
+                            new Frame(Asset.FACE_1_SAD + "", 1000)))
+            );
             var actorX = 0;
             for (Actor actor : actors) {
                 stage.views.add(actor.view);
