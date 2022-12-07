@@ -2,7 +2,6 @@ package antivoland.console.viewport.view.component;
 
 import antivoland.console.viewport.Frame;
 import antivoland.console.viewport.Frames;
-import antivoland.console.viewport.tick.Tick;
 
 import java.util.List;
 
@@ -18,10 +17,9 @@ public class Timer extends Component {
     }
 
     @Override
-    public String value(Tick event) {
-        var dt = event.currentTimeMillis - createdTimeMillis;
-        var minutes = dt / 1000 / 60;
-        var seconds = dt / 1000 - minutes * 60;
-        return format("%02d%s%02d", minutes, FRAMES.data(event), seconds);
+    public String value() {
+        var minutes = ageMillis() / 1000 / 60;
+        var seconds = ageMillis() / 1000 - minutes * 60;
+        return format("%02d%s%02d", minutes, FRAMES.data(ageMillis()), seconds);
     }
 }

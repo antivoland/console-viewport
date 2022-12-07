@@ -1,13 +1,11 @@
 package antivoland.console.viewport.stage;
 
-import antivoland.console.viewport.view.component.Component;
-import antivoland.console.viewport.view.component.Token;
-import antivoland.game.model.Player;
 import antivoland.console.viewport.tick.Tick;
 import antivoland.console.viewport.tick.Ticker;
 import antivoland.console.viewport.view.Camera;
 import antivoland.console.viewport.view.Viewport;
 import antivoland.console.viewport.view.component.Animation;
+import antivoland.console.viewport.view.component.Component;
 
 import java.io.Closeable;
 import java.util.ArrayList;
@@ -18,7 +16,6 @@ import static antivoland.console.viewport.asset.Emoji.AnimalsAndNature.*;
 
 public class Stage implements Closeable {
     private final Ticker ticker = new Ticker(this::handleTick);
-    public final Player player = new Player(new Token(";)"));
     public final Camera camera = new Camera(this);
     public final Viewport viewport = new Viewport();
     public final List<Animation> animations = List.of(
@@ -133,11 +130,10 @@ public class Stage implements Closeable {
         if (paused) {
             return;
         }
-        if (player.task != null) {
-            player.task.tick(tick);
-        }
 
-        var snapshot = camera.snapshot(tick, viewport.size);
+        views.forEach(view -> view.tick(tick));
+
+        var snapshot = camera.snapshot(viewport.size);
         viewport.draw(snapshot);
 
         // animate movements

@@ -1,10 +1,10 @@
 package antivoland.console.viewport;
 
+import antivoland.console.viewport.story.Story;
 import antivoland.console.viewport.view.component.Health;
 import antivoland.console.viewport.view.component.Monkey;
 import antivoland.console.viewport.view.component.Token;
 import antivoland.game.model.Player;
-import antivoland.console.viewport.story.Story;
 
 public class Game {
 
@@ -21,7 +21,6 @@ public class Game {
 
     public static void main(String[] args) {
 
-        var world = new World();
 //        var viewport = new ConsoleViewport(System.out);
 //        var game = new Game(viewport);
 //

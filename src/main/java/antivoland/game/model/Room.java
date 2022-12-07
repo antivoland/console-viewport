@@ -17,11 +17,6 @@ public class Room extends Component {
         super(size);
     }
 
-    @Override
-    public String value(Tick event) {
-        return null;
-    }
-
     public static int MIN_SIZE = 20;
     public static int MAX_SIZE = 40;
 

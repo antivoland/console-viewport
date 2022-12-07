@@ -31,13 +31,16 @@ public class Frames {
     }
 
     public String data(final Tick tick) {
+        throw new UnsupportedOperationException("Method was deprecated");
+    }
+
+    public String data(final long ageMillis) {
         if (frames.isEmpty()) {
             return "";
         }
         final var totalDurationMillis = totalDurationMillis();
 
-        var dt = tick.currentTimeMillis - createdTimeMillis;
-        dt = dt % totalDurationMillis;
+        var dt = ageMillis % totalDurationMillis;
 
         var i = 0;
         var dti = 0;

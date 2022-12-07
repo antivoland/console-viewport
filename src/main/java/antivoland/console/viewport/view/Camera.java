@@ -12,13 +12,16 @@ public class Camera {
         this.stage = stage;
     }
 
+    @Deprecated
     public Snapshot snapshot(Tick tick, int size) {
+        throw new UnsupportedOperationException("Method was deprecated");
+    }
+
+    public Snapshot snapshot(int size) {
         var snapshot = new Snapshot(size);
-
-        for (var animation : stage.views) {
-            snapshot = snapshot.append(animation.x - x, animation.value(tick));
+        for (var view : stage.views) {
+            snapshot = snapshot.append(view.x - x, view.value());
         }
-
-        return snapshot.append(stage.player.view.x - x, stage.player.view.value(tick));
+        return snapshot;
     }
 }

@@ -1,7 +1,5 @@
 package antivoland.console.viewport.view.component;
 
-import antivoland.console.viewport.tick.Tick;
-
 public class Token extends Component {
     public final String value;
 
@@ -16,7 +14,7 @@ public class Token extends Component {
     }
 
     @Override
-    public String value(Tick event) {
+    public String value() {
         return value;
     }
 }

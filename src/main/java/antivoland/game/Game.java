@@ -50,20 +50,12 @@ public class Game {
 
             stage.play();
 
-            stage.player.view.x = 0;
-            stage.player.velocity = 2.0;
+            player.view.x = 0;
+            player.velocity = 2.0;
+            player.move(20);
 
-            // attack
-//            stage.player.move(20);
-
-            // move
-            stage.player.move(20);
-
-//            Thread.sleep(30000);
-
-//            stage.pause();
-
-            // do nothing
+            Thread.sleep(1000);
+            stage.play();
         }
     }
 }

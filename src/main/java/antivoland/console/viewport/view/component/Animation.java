@@ -30,7 +30,7 @@ public class Animation extends Component {
     }
 
     @Override
-    public String value(Tick event) {
-        return frames.data(event);
+    public String value() {
+        return frames.data(ageMillis());
     }
 }

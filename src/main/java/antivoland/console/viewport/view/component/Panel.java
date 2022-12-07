@@ -1,7 +1,5 @@
 package antivoland.console.viewport.view.component;
 
-import antivoland.console.viewport.tick.Tick;
-
 public class Panel extends Container {
     final Align align;
 
@@ -14,10 +12,5 @@ public class Panel extends Container {
     public synchronized void add(Component component) {
         super.add(component);
         align.realign(this);
-    }
-
-    @Override
-    public String value(Tick event) {
-        throw new UnsupportedOperationException("Not implemented yet");
     }
 }
