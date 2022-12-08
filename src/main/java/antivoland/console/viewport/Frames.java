@@ -1,16 +1,14 @@
 package antivoland.console.viewport;
 
-import antivoland.console.viewport.tick.Tick;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Math.max;
 
 public class Frames {
     final List<Frame> frames;
-    final long createdTimeMillis = System.currentTimeMillis();
 
-    public Frames(final List<Frame> frames) {
+    public Frames(List<Frame> frames) {
         this.frames = frames;
     }
 
@@ -30,10 +28,6 @@ public class Frames {
         return size;
     }
 
-    public String data(final Tick tick) {
-        throw new UnsupportedOperationException("Method was deprecated");
-    }
-
     public String data(final long ageMillis) {
         if (frames.isEmpty()) {
             return "";
@@ -49,5 +43,24 @@ public class Frames {
             dti += frame.durationMillis;
         } while (dti <= dt && ++i < frames.size());
         return frames.get(i).data;
+    }
+
+    public static Frames parse(String value) {
+        return parse(value, 1);
+    }
+
+    public static Frames parse(String value, int frameSize) {
+        var frames = new ArrayList<Frame>();
+        var j = 0;
+        var frame = new StringBuilder();
+        for (int i = 0; i < value.length(); ++i) {
+            frame.append(value.charAt(i));
+            j = j + 1 % frameSize;
+            if (j == 0) {
+                frames.add(new Frame(frame.toString()));
+                frame = new StringBuilder();
+            }
+        }
+        return new Frames(frames);
     }
 }

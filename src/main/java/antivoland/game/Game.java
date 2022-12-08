@@ -1,6 +1,7 @@
 package antivoland.game;
 
 import antivoland.console.viewport.Frame;
+import antivoland.console.viewport.Frames;
 import antivoland.console.viewport.stage.Stage;
 import antivoland.console.viewport.story.Story;
 import antivoland.console.viewport.view.component.Animation;
@@ -29,11 +30,13 @@ public class Game {
                     player,
                     new Actor(new Token(Asset.FACE_2)),
                     new Actor(new Animation(
-                            new Frame(Asset.FACE_1_HAPPY + "", 1000),
-                            new Frame(Asset.FACE_1_HAPPY_INVERTED + "", 1000))),
+                            new Frame(Asset.FACE_1_HAPPY + "", 200),
+                            new Frame(Asset.FACE_1_HAPPY_INVERTED + "", 200))),
                     new Actor(new Animation(
                             new Frame(Asset.FACE_1_HAPPY + "", 1000),
-                            new Frame(Asset.FACE_1_SAD + "", 1000)))
+                            new Frame(Asset.FACE_1_SAD + "", 1000))),
+                    new Actor(new Animation(Frames.parse("°º¤ø,¸¸,ø¤º°`"))),
+                    new Actor(new Animation(Frames.parse("¯`·._.·`")))
             );
             var actorX = 0;
             for (Actor actor : actors) {

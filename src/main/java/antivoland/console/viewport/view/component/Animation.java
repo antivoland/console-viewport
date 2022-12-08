@@ -23,7 +23,7 @@ public class Animation extends Component {
         this(new Frames(Arrays.stream(frames).collect(toList())));
     }
 
-    private Animation(Frames frames) {
+    public Animation(Frames frames) {
         super(frames.maxSize());
         this.frames = frames;
     }

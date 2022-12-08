@@ -18,8 +18,7 @@ public class MoveTask extends Task {
 
     @Override
     public void tick(Tick tick) {
-        long dt = tick.currentTimeMillis - createdTimeMillis;
-        int dx = min((int) (actor.velocity * dt / 1000), xTo - xFrom);
+        int dx = min((int) (actor.velocity * tick.dt / 1000), xTo - xFrom);
         actor.view.x = xFrom + dx;
     }
 }
