@@ -23,8 +23,8 @@ public abstract class Component {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
-    public final void tick(Tick event) {
-        ageMillis.addAndGet(event.dt);
+    public final void tick(Tick tick) {
+        ageMillis.addAndGet(tick.dt);
     }
 
     public final long ageMillis() {

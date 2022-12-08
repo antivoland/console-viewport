@@ -2,7 +2,6 @@ package antivoland.console.viewport.view.component;
 
 import antivoland.console.viewport.Frame;
 import antivoland.console.viewport.Frames;
-import antivoland.console.viewport.tick.Tick;
 
 import java.util.Arrays;
 

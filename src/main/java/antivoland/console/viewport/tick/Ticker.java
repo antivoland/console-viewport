@@ -36,8 +36,9 @@ public class Ticker implements Closeable {
 
     private void tick() {
         final long currentTimestamp = System.currentTimeMillis();
+        var tick = new Tick(previousTimestamp, currentTimestamp);
         previousTimestamp = currentTimestamp;
-        tickHandler.accept(new Tick(currentTimestamp, previousTimestamp));
+        tickHandler.accept(tick);
     }
 
     @Override
