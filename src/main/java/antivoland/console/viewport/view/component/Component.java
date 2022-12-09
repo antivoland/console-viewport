@@ -1,14 +1,12 @@
 package antivoland.console.viewport.view.component;
 
 import antivoland.console.viewport.tick.Tick;
+import antivoland.console.viewport.view.Aging;
 
-import java.util.concurrent.atomic.AtomicLong;
-
-public abstract class Component {
+public abstract class Component extends Aging {
 
     public volatile int x;
     public final int size;
-    private final AtomicLong ageMillis = new AtomicLong(0);
 
     protected Component(int size) {
         this.size = size;
@@ -21,13 +19,5 @@ public abstract class Component {
 
     public String value() {
         throw new UnsupportedOperationException("Not implemented yet");
-    }
-
-    public final void tick(Tick tick) {
-        ageMillis.addAndGet(tick.dt);
-    }
-
-    public final long ageMillis() {
-        return ageMillis.get();
     }
 }

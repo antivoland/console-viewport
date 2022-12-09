@@ -1,6 +1,6 @@
 ## About
 
-This is an awkward attempt to start making games. Now you ask me why awkward? Well, every man has to master some shit he can't explain. I mean there are is one limitation at least: we can only redraw one line of a terminal output. Can we make an addictive gameplay? Who knows, let's try!
+This is an awkward attempt to start making games. Now you ask me why awkward? Well, every man has to master some shit he can't explain. I mean there is one limitation at least: we can only redraw one line of a console output. Can we make an addictive gameplay? Who knows, let's try!
 
 ## Demo
 

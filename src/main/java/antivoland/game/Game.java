@@ -2,6 +2,7 @@ package antivoland.game;
 
 import antivoland.console.viewport.Frame;
 import antivoland.console.viewport.Frames;
+import antivoland.console.viewport.view.export.GifExporter;
 import antivoland.console.viewport.stage.Stage;
 import antivoland.console.viewport.story.Story;
 import antivoland.console.viewport.view.component.Animation;
@@ -11,11 +12,23 @@ import antivoland.game.model.Actor;
 import antivoland.game.model.Door;
 import antivoland.game.model.Player;
 
+import java.nio.file.Paths;
 import java.util.List;
 
 public class Game {
     public static void main(String[] args) throws Exception {
         var story = new Story();
+
+        System.out.println("XXy"); // 88, 88, 121
+
+        System.exit(0);
+
+        GifExporter.saveGifToFile(Paths.get("xxx.gif"),
+                GifExporter.encode("x"),
+                GifExporter.encode("yy"),
+                GifExporter.encode("zzz"));
+
+//        System.exit(0);
 
 //        System.in.read();
         try (var stage = new Stage()) {
@@ -41,13 +54,28 @@ public class Game {
                     new Actor(new Animation(Frames.parse("✢✣✤✥✤✣✢✢✢✢✢✢✢"))),
                     new Actor(new Animation(Frames.parse("✦✧"))),
                     new Actor(new Animation(Frames.parse("✩✪✫"))),
-                    new Actor(new Animation(Frames.parse("✩✪✫✬✭✮✯✰★")))
-            );
+                    new Actor(new Animation(Frames.parse("✩✪✫✬✭✮✯✰★"))),
+                    new Actor(new Token("🐩")),
+                    new Actor(new Animation(1000,
+                            "♔",
+                            "♕",
+                            "♖",
+                            "♗",
+                            "♘",
+                            "♙",
+                            "♚",
+                            "♛",
+                            "♜",
+                            "♝",
+                            "♞",
+                            "♟"))
+
+                    );
             var actorX = 0;
             for (Actor actor : actors) {
                 stage.views.add(actor.view);
                 actor.view.x = actorX;
-                actorX += 2;
+                actorX += 3;
             }
 
             var door = new Door();
