@@ -48,7 +48,7 @@ public class Game {
                     new Actor(new Animation(
                             new Frame(Asset.FACE_1_HAPPY + "", 1000),
                             new Frame(Asset.FACE_1_SAD + "", 1000))),
-                    new Actor(new Animation(Frames.parse("°º¤ø,¸¸,ø¤º°`"))),
+//                    new Actor(new Animation(Frames.parse("°º¤ø,¸¸,ø¤º°`"))),
                     new Actor(new Animation(Frames.parse("¯`·._.·`"))),
                     new Actor(new Animation(Frames.parse("¯`·.¸¸.·´"))),
                     new Actor(new Animation(Frames.parse("✢✣✤✥✤✣✢✢✢✢✢✢✢"))),
