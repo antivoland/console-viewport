@@ -5,9 +5,11 @@ import com.madgag.gif.fmsware.AnimatedGifEncoder;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
 
 public class GifExporter {
     public static void export(String text, Path file) {
@@ -47,10 +49,47 @@ public class GifExporter {
         }
     }
 
+    public static void saveGifToFile(Path to, BufferedImage... images) throws IOException {
+        AnimatedGifEncoder age = new AnimatedGifEncoder();
+        age.setDelay(1000);
+        age.setRepeat(0);
+        age.start(new FileOutputStream(to.toFile()));
+        for (var image : images) {
+            age.addFrame(image);
+        }
+        age.finish();
+    }
+
+    public static void saveGifToFile(Path to, Path... files) throws IOException {
+        AnimatedGifEncoder age = new AnimatedGifEncoder();
+        age.setDelay(1000);
+        age.setRepeat(0);
+        age.start(new FileOutputStream(to.toFile()));
+        for (Path file : files) {
+            age.addFrame(ImageIO.read(file.toFile()));
+        }
+        age.finish();
+    }
+
+    public static void export(List<Recorder.Frame> frames, Path file) {
+        var encoder = new AnimatedGifEncoder();
+        encoder.setDelay(Recorder.FRAME_INTERVAL_MILLIS);
+        encoder.setRepeat(0);
+        try {
+            encoder.start(new FileOutputStream(file.toFile()));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        for (var frame : frames) {
+            encoder.addFrame(encode(frame.value));
+        }
+        encoder.finish();
+    }
+
     public static BufferedImage encode(String text) {
         /*
            Because font metrics is based on a graphics context, we need to create
-           a small, temporary image so we can ascertain the width and height
+           a small, temporary image, so we can ascertain the width and height
            of the final image
          */
         BufferedImage img = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
@@ -78,27 +117,5 @@ public class GifExporter {
         g2d.drawString(text, 0, fm.getAscent());
         g2d.dispose();
         return img;
-    }
-
-    public static void saveGifToFile(Path to, BufferedImage... images) throws IOException {
-        AnimatedGifEncoder age = new AnimatedGifEncoder();
-        age.setDelay(1000);
-        age.setRepeat(0);
-        age.start(new FileOutputStream(to.toFile()));
-        for (var image : images) {
-            age.addFrame(image);
-        }
-        age.finish();
-    }
-
-    public static void saveGifToFile(Path to, Path... files) throws IOException {
-        AnimatedGifEncoder age = new AnimatedGifEncoder();
-        age.setDelay(1000);
-        age.setRepeat(0);
-        age.start(new FileOutputStream(to.toFile()));
-        for (Path file : files) {
-            age.addFrame(ImageIO.read(file.toFile()));
-        }
-        age.finish();
     }
 }

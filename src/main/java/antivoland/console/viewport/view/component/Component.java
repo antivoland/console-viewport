@@ -1,15 +1,24 @@
 package antivoland.console.viewport.view.component;
 
 import antivoland.console.viewport.tick.Tick;
-import antivoland.console.viewport.view.Aging;
+import antivoland.console.viewport.view.Age;
 
-public abstract class Component extends Aging {
+public abstract class Component {
 
     public volatile int x;
     public final int size;
+    public final Age age = new Age();
 
     protected Component(int size) {
         this.size = size;
+    }
+
+    public void tick(Tick tick) {
+        age.tick(tick);
+    }
+
+    public final long ageMillis() {
+        return age.millis();
     }
 
     @Deprecated

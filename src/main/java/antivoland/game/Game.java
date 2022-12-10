@@ -19,9 +19,9 @@ public class Game {
     public static void main(String[] args) throws Exception {
         var story = new Story();
 
-        System.out.println("XXy"); // 88, 88, 121
+//        System.out.println("XXy"); // 88, 88, 121
 
-        System.exit(0);
+//        System.exit(0);
 
         GifExporter.saveGifToFile(Paths.get("xxx.gif"),
                 GifExporter.encode("x"),
@@ -90,8 +90,13 @@ public class Game {
             player.velocity = 2.0;
             player.move(20);
 
-            Thread.sleep(1000);
-            stage.play();
+//            Thread.sleep(1000);
+//            stage.play();
+
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                stage.pause();
+                GifExporter.export(stage.recorder.frames, Paths.get("static/game.gif"));
+            }));
         }
     }
 }

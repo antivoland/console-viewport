@@ -6,6 +6,7 @@ import antivoland.console.viewport.view.Camera;
 import antivoland.console.viewport.view.Viewport;
 import antivoland.console.viewport.view.component.Animation;
 import antivoland.console.viewport.view.component.Component;
+import antivoland.console.viewport.view.export.Recorder;
 
 import java.io.Closeable;
 import java.util.ArrayList;
@@ -108,6 +109,7 @@ public class Stage implements Closeable {
     );
     private volatile boolean paused = true;
     public final Collection<Component> views = new ArrayList<>();
+    public final Recorder recorder = new Recorder();
 
     public Stage() {
         int x0 = 20;
@@ -135,8 +137,7 @@ public class Stage implements Closeable {
 
         var snapshot = camera.snapshot(viewport.size);
         viewport.draw(snapshot);
-
-        // animate movements
+        recorder.record(tick, snapshot);
     }
 
     @Override
