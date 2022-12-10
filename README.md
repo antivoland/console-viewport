@@ -4,7 +4,17 @@ This is an awkward attempt to start making games. Now you ask me why awkward? We
 
 ## Status
 
-![Status](static/game.gif)
+### Dialog
+
+![](static/dialog.gif)
+
+### Chess
+
+![](static/chess.gif)
+
+### Game
+
+![](static/game.gif)
 
 ## Demo
 

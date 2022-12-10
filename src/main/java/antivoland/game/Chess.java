@@ -8,7 +8,7 @@ import java.util.List;
 public class Chess {
     public static void main(String[] args) {
         System.out.println("12345678");
-        try (var stage = new Stage()) {
+        try (var stage = new Stage("chess")) {
             var white = List.of(
                     new Token("♔"),
                     new Token("♙")

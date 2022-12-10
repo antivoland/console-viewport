@@ -19,7 +19,7 @@ public class Game {
     public static void main(String[] args) {
         var story = new Story();
 
-        try (var stage = new Stage()) {
+        try (var stage = new Stage("game")) {
             var player = new Player(new Animation(
                     new Frame(Asset.FACE_1_SAD + "", 2000),
                     new Frame(Asset.FACE_1_HAPPY + "", 500),
