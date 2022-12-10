@@ -2,11 +2,11 @@ package antivoland.game;
 
 import antivoland.console.viewport.Frame;
 import antivoland.console.viewport.Frames;
-import antivoland.console.viewport.view.export.GifExporter;
 import antivoland.console.viewport.stage.Stage;
 import antivoland.console.viewport.story.Story;
 import antivoland.console.viewport.view.component.Animation;
 import antivoland.console.viewport.view.component.Token;
+import antivoland.console.viewport.view.export.GifExporter;
 import antivoland.game.asset.Asset;
 import antivoland.game.model.Actor;
 import antivoland.game.model.Door;
@@ -16,21 +16,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Game {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         var story = new Story();
 
-//        System.out.println("XXy"); // 88, 88, 121
-
-//        System.exit(0);
-
-        GifExporter.saveGifToFile(Paths.get("xxx.gif"),
-                GifExporter.encode("x"),
-                GifExporter.encode("yy"),
-                GifExporter.encode("zzz"));
-
-//        System.exit(0);
-
-//        System.in.read();
         try (var stage = new Stage()) {
             var player = new Player(new Animation(
                     new Frame(Asset.FACE_1_SAD + "", 2000),
@@ -68,9 +56,10 @@ public class Game {
                             "♜",
                             "♝",
                             "♞",
-                            "♟"))
+                            "♟")
+                    )
 
-                    );
+            );
             var actorX = 0;
             for (Actor actor : actors) {
                 stage.views.add(actor.view);
