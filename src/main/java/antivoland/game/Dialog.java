@@ -10,7 +10,7 @@ public class Dialog {
     public static void main(String[] args) {
         try (var stage = new Stage("dialog")) {
             var actor = new Actor(new Animation(
-                    new Frame(Asset.FACE_1_HAPPY + "", 500),
+                    new Frame(Asset.FACE_1_HAPPY + "", 2000),
                     new Frame(Asset.FACE_1_HAPPY_INVERTED + "", 2000)
             ));
 

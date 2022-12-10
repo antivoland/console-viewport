@@ -75,6 +75,7 @@ public class GifExporter {
         var encoder = new AnimatedGifEncoder();
         encoder.setDelay(Recorder.FRAME_INTERVAL_MILLIS);
         encoder.setRepeat(0);
+        encoder.setTransparent(Color.WHITE);
         try {
             encoder.start(new FileOutputStream(file.toFile()));
         } catch (FileNotFoundException e) {
