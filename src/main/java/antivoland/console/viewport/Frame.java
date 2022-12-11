@@ -1,7 +1,7 @@
 package antivoland.console.viewport;
 
 public class Frame {
-    private static final int DEFAULT_DURATION_MILLIS = 500;
+    static final int DEFAULT_DURATION_MILLIS = 2000;
     final String data;
     final int durationMillis;
 

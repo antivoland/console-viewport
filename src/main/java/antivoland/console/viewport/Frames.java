@@ -50,6 +50,10 @@ public class Frames {
     }
 
     public static Frames parse(String value, int frameSize) {
+        return parse(value, frameSize, Frame.DEFAULT_DURATION_MILLIS);
+    }
+
+    public static Frames parse(String value, int frameSize, int frameDurationMillis) {
         var frames = new ArrayList<Frame>();
         var j = 0;
         var frame = new StringBuilder();
@@ -57,7 +61,7 @@ public class Frames {
             frame.append(value.charAt(i));
             j = j + 1 % frameSize;
             if (j == 0) {
-                frames.add(new Frame(frame.toString()));
+                frames.add(new Frame(frame.toString(), frameDurationMillis));
                 frame = new StringBuilder();
             }
         }
